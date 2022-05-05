@@ -39,16 +39,18 @@ void	unset_var(t_list *list, t_env *env, char *cmd, t_env *tmp)
 	{
 		len = check_biggest(env->name, cmd);
 		len_n = check_biggest(env->next->name, cmd);
-		if (env == list->first && \
-			((len > 1 && ft_strncmp(env->name, cmd, len - 1) == 0)
-				|| (len == 1 && ft_strncmp(env->name, cmd, len) == 0)))
+		if (ft_search_index(cmd, '=') >= 0)
+		{
+			len = len - 1;
+			len_n = len_n - 1;
+		}
+		if (env == list->first && ft_strncmp(env->name, cmd, len) == 0)
 		{
 			list->first = env->next;
 			secure_free((void **)&env);
 			break ;
 		}
-		else if ((len_n > 1 && ft_strncmp(env->next->name, cmd, len_n - 1) == 0)
-			|| (len_n == 1 && ft_strncmp(env->next->name, cmd, len_n) == 0))
+		else if (ft_strncmp(env->next->name, cmd, len_n) == 0)
 		{
 			tmp = env->next;
 			env->next = env->next->next;
