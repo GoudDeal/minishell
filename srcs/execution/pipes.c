@@ -7,7 +7,11 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 21:36:20 by cmarteau          #+#    #+#             */
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*   Updated: 2022/05/06 00:30:30 by dcyprien         ###   ########.fr       */
+=======
+/*   Updated: 2022/05/05 22:53:44 by dcyprien         ###   ########.fr       */
+>>>>>>> parent of 903cc23... final version normalement
 =======
 /*   Updated: 2022/05/05 22:53:44 by dcyprien         ###   ########.fr       */
 >>>>>>> parent of 903cc23... final version normalement
