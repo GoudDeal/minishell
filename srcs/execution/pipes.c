@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 21:36:20 by cmarteau          #+#    #+#             */
-/*   Updated: 2022/05/05 23:14:09 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/05 23:20:47 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,10 @@ void	run_heredoc(t_data *data)
 	pid_t		child;
 	int			exit_status;
 	int			pdes[2];
-	int			stdin_copy;
 	char		*doc;
 
 	pipe(pdes);
 	child = fork();
-	stdin_copy = dup(0);
 	signal(SIGINT, inthandler2);
 	doc = NULL;
 	if (child == -1)
@@ -97,7 +95,6 @@ void	run_heredoc(t_data *data)
 		dup2(pdes[0], STDIN_FILENO);
 		close(pdes[1]);
 		waitpid(child, &exit_status, 0);
-		dup2(stdin_copy, STDIN_FILENO);
 	}
 }
 
