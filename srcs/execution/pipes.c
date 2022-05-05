@@ -106,7 +106,6 @@ char	*heredoc(t_data *data)
 	char	*test;
 
 	output = NULL;
-	set_sigaction(3);
 	tmp = readline("> ");
 	len = check_biggest(tmp, data->infile);
 	while (ft_strncmp(tmp, data->infile, len) != 0)
