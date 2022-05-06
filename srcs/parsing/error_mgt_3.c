@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 23:33:57 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/06 23:38:54 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/06 23:46:02 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	null_redir(char *cmd)
 	{
 		if ((cmd[i] == '<' || cmd[i] == '>')
 			&& char_in_quote(cmd, cmd[i], i) == 0)
-			while (cmd[i] && cmd[i] == ' ')
+			while (cmd[i] && (cmd[i] == ' ' || cmd[i] == '>' || cmd[i] == '<'))
 				i++;
 		if (cmd[i] && (cmd[i] == '>' || cmd[i] == '<')
 			&& char_in_quote(cmd, cmd[i], i) == 0)
