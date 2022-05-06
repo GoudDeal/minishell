@@ -85,12 +85,14 @@ int	check_null_cmd(t_data *data, int i)
 {
 	if (data->cmd[i] == NULL)
 	{
+		printf("data = %s\n", data->cmd[i]);
 		if (data->cmd[i + 1] != NULL)
 		{
 			secure_free((void **)&data->cmd[i]);
 			data->cmd[i] = ft_strdup(data->cmd[i + 1]);
 		}
 		i--;
+		printf("i = %d\n", i);
 		data->nb_args--;
 	}
 	return (i);
