@@ -33,6 +33,8 @@ void	get_expansion(t_data *data, t_list *list)
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
 		{
 			var = cat_expansion(data->cmd[i], list);
+			if (char_in_quote(data->cmd[i], '$', 0) != DOUBLE_QUOTE)
+				var = skip_spaces(var);
 			secure_free((void **)&data->cmd[i]);
 			data->cmd[i] = ft_strdup(var);
 			i = check_null_cmd(data, i);
@@ -65,7 +67,6 @@ char	*cat_expansion(char *cmd, t_list *list)
 		while (var[++i])
 			res = ft_strjoin_free(res, var[i]);
 	}
-	res = skip_spaces(res);
 	free_malloc(var, NULL, 1);
 	return (res);
 }
