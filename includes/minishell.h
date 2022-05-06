@@ -238,7 +238,7 @@ int		check_parsing(char *cmd, t_list *list);
 int		check_valid_cmd(char *cmd, t_data *data, t_list *list);
 int		pipe_errors(char *cmd, int i);
 int		test_file(char *tmp, int i, int k);
-int		check_null_cmd(t_data *data, int i);
+void	check_null_cmd(t_data *data);
 int		file_test(char *tmp, int i, int k);
 char	*access_path(char **tmp_path, char *tmp, t_data *data);
 

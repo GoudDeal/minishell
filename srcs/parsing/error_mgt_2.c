@@ -81,18 +81,19 @@ int	test_file(char *tmp, int i, int k)
 	return (0);
 }
 
-int	check_null_cmd(t_data *data, int i)
+void	check_null_cmd(t_data *data)
 {
-	if (data->cmd[i] == NULL)
+	int	i;
+
+	i = -1;
+	while (data->cmd[++i])
 	{
-		if (data->cmd[i + 1] != NULL)
+		if (ft_strncmp(data->cmd[i], "NULL", 4) == 0)
 		{
-			printf("data->cmd[%i] == %s\n", i, data->cmd[i]);
 			secure_free((void **)&data->cmd[i]);
-			data->cmd[i] = ft_strdup(data->cmd[i + 1]);
+			if (data->cmd[i + 1] != NULL && ft_strncmp(data->cmd[i + 1], "NULL", 4) != 0)
+				data->cmd[i] = ft_strdup(data->cmd[i + 1]);
+			data->nb_args--;
 		}
-		i--;
-		data->nb_args--;
 	}
-	return (i);
 }

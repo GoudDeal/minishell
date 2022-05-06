@@ -19,8 +19,6 @@ int	mini_expansion(char *var, t_list *list, t_data *data, int i)
 		var = skip_spaces(var);
 	secure_free((void **)&data->cmd[i]);
 	data->cmd[i] = ft_strdup(var);
-	i = check_null_cmd(data, i);
 	secure_free((void **)&var);
-	i = check_null_cmd(list->prems, i);
 	return (i);
 }

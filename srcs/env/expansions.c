@@ -34,6 +34,7 @@ void	get_expansion(t_data *data, t_list *list)
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
 				i = mini_expansion(var, list, data, i);
 	}
+	check_null_cmd(data);
 }
 
 char	*cat_expansion(char *cmd, t_list *list)
@@ -105,7 +106,7 @@ char	*find_env_var(t_list *list, char *str)
 			return (ft_strdup(env->value));
 		env = env->next;
 	}
-	return (NULL);
+	return (ft_strdup("NULL"));
 }
 
 char	*join_pieces(char **b, char *c, char *var)
