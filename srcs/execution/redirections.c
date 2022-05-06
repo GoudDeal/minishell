@@ -89,6 +89,7 @@ void	open_files(char *cmd, t_data *data)
 		i = 0;
 		while (tmp[i] != '>' && tmp[i])
 			i++;
+		data->redir_stdout = 0;
 		if (tmp[i] && tmp[i + 1] && tmp[i + 1] == '>')
 			data->redir_stdout = 1;
 		i += 1;

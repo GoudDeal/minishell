@@ -22,7 +22,7 @@ char	*ft_strchr(char *s, int c)
 		return (NULL);
 	while (*s && *(s + 1) && *s != c)
 	{
-		if ((*s == '>' || *s == '<') && *s++)
+		if ((*s == '>' || *s == '<') && *s++ && c != '|')
 		{
 			if (i > 0 && (*s--) && *s--)
 				break ;
