@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 15:35:06 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/07 00:06:40 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/07 01:19:55 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,7 @@ t_list	*swap(t_list *list);
 int		is_sorted(t_list *list);
 void	duplicate_env(char **env, t_list *list);
 void	ft_free_list(t_list *liste);
+void	ft_free_one_list(t_env *list);
 void	print_export(t_list *list);
 void	update_pwd(t_list *list);
 char	*cd_args(t_list *list, char *str);
