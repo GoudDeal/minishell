@@ -58,3 +58,18 @@ int	check_exp(char *cmd)
 		return (1);
 	return (0);
 }
+
+int	is_digit_arg(char *s)
+{
+	int	i;
+
+	i = -1;
+	while (s && s[++i])
+	{
+		if (s[0] == '-')
+			s++;
+		if (!ft_isdigit(s[i]))
+			return (0);
+	}
+	return (1);
+}

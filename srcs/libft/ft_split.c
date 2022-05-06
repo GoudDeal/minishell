@@ -43,7 +43,7 @@ char	*extract_word(const char *s, char c, int mode)
 	end = 0;
 	if (is_quote(c) == EXIT_SUCCESS && mode != 2)
 		end++;
-	while (s[end] && s[end] != c)
+	while (s && s[end] && s[end] != c)
 	{
 		end = handling_quotes((char *)s, end, mode);
 		if ((s[end] == '>' || s[end] == '<') && ++end)
@@ -56,7 +56,8 @@ char	*extract_word(const char *s, char c, int mode)
 			while (s[end] == ' ')
 				end++;
 		}
-		end++;
+		if ((size_t)(end + 1) <= ft_strlen(s))
+			end++;
 	}
 	if (is_quote(c) == EXIT_SUCCESS && mode != 2)
 		return (quote_mgt(s, end));
