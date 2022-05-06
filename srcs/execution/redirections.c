@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirections.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmarteau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 21:10:49 by cmarteau          #+#    #+#             */
-/*   Updated: 2022/04/23 21:10:52 by cmarteau         ###   ########.fr       */
+/*   Updated: 2022/05/07 01:06:43 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ int	close_and_open_files(char *tmp, int i, int k, t_data *data)
 	else
 		fd = open(file, O_RDWR | O_CREAT | O_APPEND, 00700);
 	close(fd);
+	if (fd == -1)
+		secure_free((void *)&tmp);
 	secure_free((void **)&file);
 	return (fd);
 }
