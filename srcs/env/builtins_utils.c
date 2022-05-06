@@ -19,8 +19,6 @@ void	print_echo(char *cmd)
 	k = 0;
 	while (cmd && cmd[k])
 	{
-		if (cmd[k] == ' ' && k == 0)
-			k++;
 		ft_putchar_fd(cmd[k], 1);
 		if (cmd[k])
 			k++;
