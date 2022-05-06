@@ -32,8 +32,6 @@ int	main(int ac, char **av, char **envp)
 	{
 		set_sigaction(0);
 		prompt = readline("Mimi_shell>> ");
-		if (ft_strlen(prompt) > 0)
-			add_history(prompt);
 		list->prems = parsing(prompt, list);
 		run_shell(list);
 		ft_free_data(list);
@@ -41,7 +39,5 @@ int	main(int ac, char **av, char **envp)
 		dup2(std_copy, STDIN_FILENO);
 		close(std_copy);
 	}
-	ft_free_list(list);
-	rl_clear_history();
 	return (g_exit_code);
 }

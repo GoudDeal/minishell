@@ -25,7 +25,7 @@ void	get_expansion(t_data *data, t_list *list)
 	while (data->cmd[++i])
 	{
 		a = ft_strchr_exp(data->cmd[i], '$');
-		index = ft_search_index(data->cmd[i], '$');
+		index = src_idx(data->cmd[i], '$');
 		if (a != 0 && (check_exp(data->cmd[i]) == 1)
 			&& ft_strlen(a) != 1 && (ft_isalnum(data->cmd[i][index + 1])
 			|| data->cmd[i][index + 1] == '"' || data->cmd[i][index + 1] == '?'

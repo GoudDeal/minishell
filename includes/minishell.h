@@ -112,7 +112,7 @@ char	*verify_path(t_data *data);
 char	*clear_tab(char *str);
 char	*parsing_quotes(char *s);
 int		count_quotes(char *s);
-int		ft_search_index(const char *s, int c);
+int		src_idx(const char *s, int c);
 char	*ft_substr_free(char *s, unsigned int start, size_t len);
 int		cmd_digit(char *cmd);
 t_split	*mini_split(t_split *split, char c, int mode, int quote);

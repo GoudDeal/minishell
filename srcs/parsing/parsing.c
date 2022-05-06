@@ -97,6 +97,8 @@ t_data	*parsing(char *cmd, t_list *list)
 		error_code(2, 0, list);
 		return (NULL);
 	}
+	if (ft_strlen(cmd) > 0)
+		add_history(cmd);
 	list->pipe = count_cmds(cmd) - 1;
 	if (count_cmds(cmd) > 0 && verify_cmd(cmd) != 2)
 	{
