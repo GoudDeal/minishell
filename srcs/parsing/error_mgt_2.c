@@ -83,17 +83,27 @@ int	test_file(char *tmp, int i, int k)
 
 void	check_null_cmd(t_data *data)
 {
-	int	i;
+	int		i;
+	char	*tmp;
 
 	i = -1;
 	while (data->cmd[++i])
 	{
 		if (ft_strncmp(data->cmd[i], "NULL", 4) == 0)
 		{
-			secure_free((void **)&data->cmd[i]);
-			if (data->cmd[i + 1] != NULL && ft_strncmp(data->cmd[i + 1], "NULL", 4) != 0)
-				data->cmd[i] = ft_strdup(data->cmd[i + 1]);
-			data->nb_args--;
+			if (ft_strchr_exp(data->cmd[i], '=') != 0)
+			{
+				tmp = ft_strdup(ft_strchr_exp(data->cmd[i], '='));
+				secure_free((void **)&data->cmd[i]);
+				data->cmd[i] = ft_strdup(tmp);
+			}
+			else
+			{
+				secure_free((void **)&data->cmd[i]);
+				if (data->cmd[i + 1] != NULL && ft_strncmp(data->cmd[i + 1], "NULL", 4) != 0)
+					data->cmd[i] = ft_strdup(data->cmd[i + 1]);
+				data->nb_args--;
+			}
 		}
 	}
 }

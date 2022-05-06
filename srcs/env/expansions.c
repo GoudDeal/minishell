@@ -32,7 +32,7 @@ void	get_expansion(t_data *data, t_list *list)
 			|| data->cmd[i][index + 1] == '"' || data->cmd[i][index + 1] == '?'
 			|| data->cmd[i][index + 1] == '_')
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
-				i = mini_expansion(var, list, data, i);
+			i = mini_expansion(var, list, data, i);
 	}
 	check_null_cmd(data);
 }
