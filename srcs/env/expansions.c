@@ -28,7 +28,8 @@ void	get_expansion(t_data *data, t_list *list)
 		index = ft_search_index(data->cmd[i], '$');
 		if (a != 0 && (check_exp(data->cmd[i]) == 1)
 			&& ft_strlen(a) != 1 && (ft_isalnum(data->cmd[i][index + 1])
-			|| data->cmd[i][index + 1] == '"' || data->cmd[i][index + 1] == '?')
+			|| data->cmd[i][index + 1] == '"' || data->cmd[i][index + 1] == '?'
+			|| data->cmd[i][index + 1] == '_')
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
 		{
 			var = cat_expansion(data->cmd[i], list);
@@ -84,7 +85,7 @@ char	*remove_braces(char *d, t_list *list)
 		d = ft_substr_free(d, 1, ft_strchr_exp(d, '}') - d - 1);
 	}
 	i = 0;
-	while (d[i] && ((d[i] >= 'A' && d[i] <= 'z') || d[i] == '?'))
+	while (d[i] && ((d[i] >= 'A' && d[i] <= 'z') || d[i] == '?' || d[i] == '_'))
 		i++;
 	if (d[i])
 		c = ft_substr(d, i, ft_strlen(d) - 1);
@@ -97,13 +98,15 @@ char	*remove_braces(char *d, t_list *list)
 char	*find_env_var(t_list *list, char *str)
 {
 	t_env	*env;
+	int		len;
 
 	env = list->first;
 	if (str && str[0] == '?')
 		return (ft_itoa(g_exit_code));
 	while (env)
 	{
-		if (ft_strncmp(env->name, str, ft_strlen(env->name) - 1) == 0)
+		len = check_biggest(env->name, str);
+		if (ft_strncmp(env->name, str, len - 1) == 0)
 			return (ft_strdup(env->value));
 		env = env->next;
 	}

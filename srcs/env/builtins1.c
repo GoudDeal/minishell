@@ -123,7 +123,6 @@ t_env	*create_env_var(char *tmp, char *cmd, t_env *env, t_list *list)
 	env->name = ft_substr(cmd, 0, tmp - cmd + 1);
 	env->value = ft_substr(cmd, tmp - cmd + 1, \
 		ft_strlen(cmd));
-	env->value = skip_spaces(env->value);
 	if (!env->value)
 		env->env_var = env->name;
 	else
