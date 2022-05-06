@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 01:11:50 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/06 23:53:44 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/06 23:58:48 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	get_expansion(t_data *data, t_list *list)
 	var = NULL;
 	if (!data || !data->cmd || ft_strlen(data->cmd[0]) == 0)
 		return ;
-	while (data->cmd[++i] && data->nb_args > 2)
+	while (data->cmd[++i])
 	{
 		a = ft_strchr_exp(data->cmd[i], '$');
 		index = src_idx(data->cmd[i], '$');
@@ -32,9 +32,7 @@ void	get_expansion(t_data *data, t_list *list)
 			|| data->cmd[i][index + 1] == '"' || data->cmd[i][index + 1] == '?'
 			|| data->cmd[i][index + 1] == '_')
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
-		{
-			i = mini_expansion(var, list, i);
-		}
+				i = mini_expansion(var, list, i);
 	}
 }
 
