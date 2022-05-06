@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 21:20:04 by cmarteau          #+#    #+#             */
-/*   Updated: 2022/05/05 22:53:52 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/07 01:13:56 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ void	check_null_cmd(t_data *data)
 		if (ft_strncmp(data->cmd[i], "NULL", 4) == 0)
 		{
 			secure_free((void **)&data->cmd[i]);
-			if (data->cmd[i + 1] != NULL && ft_strncmp(data->cmd[i + 1], "NULL", 4) != 0)
+			if (data->cmd[i + 1] != NULL
+				&& ft_strncmp(data->cmd[i + 1], "NULL", 4) != 0)
 				data->cmd[i] = ft_strdup(data->cmd[i + 1]);
 			data->nb_args--;
 		}

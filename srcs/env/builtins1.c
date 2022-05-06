@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 01:25:55 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/07 01:01:11 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/07 01:20:16 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,14 @@ void	unset_var(t_list *list, t_env *env, char *cmd, t_env *tmp)
 		if (env == list->first && ft_strncmp(env->name, cmd, len) == 0)
 		{
 			list->first = env->next;
-			secure_free((void *)&env->env_var);
-			secure_free((void *)&env->name);
-			secure_free((void *)&env->value);
-			secure_free((void **)&env);
+			ft_free_one_list(env);
 			break ;
 		}
 		else if (ft_strncmp(env->next->name, cmd, len_n) == 0)
 		{
 			tmp = env->next;
 			env->next = env->next->next;
-			secure_free((void *)&tmp->env_var);
-			secure_free((void *)&tmp->name);
-			secure_free((void *)&tmp->value);
-			secure_free((void **)&tmp);
+			ft_free_one_list(tmp);
 			break ;
 		}
 		env = env->next;
