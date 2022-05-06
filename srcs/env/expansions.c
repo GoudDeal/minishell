@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 01:11:50 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/06 23:58:48 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/07 00:05:49 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	get_expansion(t_data *data, t_list *list)
 			|| data->cmd[i][index + 1] == '"' || data->cmd[i][index + 1] == '?'
 			|| data->cmd[i][index + 1] == '_')
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
-				i = mini_expansion(var, list, i);
+				i = mini_expansion(var, list, data, i);
 	}
 }
 
