@@ -90,4 +90,5 @@ int	mini_unset(char *cmd, t_env *env, int len, int mode)
 			return (len - 1);
 		return (len);
 	}
+	return (len);
 }
