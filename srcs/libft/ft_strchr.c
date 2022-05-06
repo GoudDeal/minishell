@@ -41,7 +41,7 @@ char	*ft_strchr(char *s, int c)
 		return ((char *)(s + 1));
 }
 
-int	ft_search_index(const char *s, int c)
+int	src_idx(const char *s, int c)
 {
 	int	i;
 

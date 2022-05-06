@@ -31,7 +31,6 @@ char	*skip_spaces(char *cmd)
 	int		k;
 	char	*str;
 
-
 	i = 0;
 	k = -1;
 	if (!cmd)
@@ -49,7 +48,7 @@ char	*skip_spaces(char *cmd)
 	while (str[k] == ' ')
 		str[k--] = 0;
 	str[++k] = '\0';
-	secure_free((void*)&cmd);
+	secure_free((void *)&cmd);
 	return (str);
 }
 

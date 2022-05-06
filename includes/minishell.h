@@ -112,7 +112,7 @@ char	*verify_path(t_data *data);
 char	*clear_tab(char *str);
 char	*parsing_quotes(char *s);
 int		count_quotes(char *s);
-int		ft_search_index(const char *s, int c);
+int		src_idx(const char *s, int c);
 char	*ft_substr_free(char *s, unsigned int start, size_t len);
 int		cmd_digit(char *cmd);
 t_split	*mini_split(t_split *split, char c, int mode, int quote);
@@ -173,6 +173,7 @@ void	print_echo(char *cmd);
 char	*ft_strchr_exp(const char *s, int c);
 int		is_digit_arg(char *s);
 void	mini_echo(t_data *data);
+int		mini_unset(char *cmd, t_env *env, int len, int mode);
 
 //env management
 t_list	*init(char **envp);
