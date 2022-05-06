@@ -33,6 +33,7 @@ void	get_expansion(t_data *data, t_list *list)
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
 		{
 			var = cat_expansion(data->cmd[i], list);
+			var = skip_spaces(var);
 			secure_free((void **)&data->cmd[i]);
 			data->cmd[i] = ft_strdup(var);
 			i = check_null_cmd(data, i);
@@ -91,7 +92,6 @@ char	*remove_braces(char *d, t_list *list)
 		c = ft_substr(d, i, ft_strlen(d) - 1);
 	d = ft_substr_free(d, 0, i);
 	var = find_env_var(list, d);
-	var = skip_spaces(var);
 	secure_free((void **)&d);
 	return (join_pieces(b, c, var));
 }
