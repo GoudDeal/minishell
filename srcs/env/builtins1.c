@@ -39,12 +39,8 @@ void	unset_var(t_list *list, t_env *env, char *cmd, t_env *tmp)
 	{
 		len = check_biggest(env->name, cmd);
 		len_n = check_biggest(env->next->name, cmd);
-		if ((src_idx(cmd, '=') >= 0 && src_idx(env->next->name, '=') == -1)
-			|| (src_idx(cmd, '=') == -1 && src_idx(env->next->name, '=') >= 0))
-			len_n = len_n - 1;
-		if ((src_idx(cmd, '=') >= 0 && src_idx(env->name, '=') == -1)
-			|| (src_idx(cmd, '=') == -1 && src_idx(env->name, '=') >= 0))
-			len = len - 1;
+		len = mini_unset(cmd, env, len, 2);
+		len_n = mini_unset(cmd, env, len_n, 1);
 		if (env == list->first && ft_strncmp(env->name, cmd, len) == 0)
 		{
 			list->first = env->next;

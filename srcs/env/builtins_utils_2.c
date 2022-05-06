@@ -73,3 +73,21 @@ int	is_digit_arg(char *s)
 	}
 	return (1);
 }
+
+int	mini_unset(char *cmd, t_env *env, int len, int mode)
+{
+	if (mode == 1)
+	{
+		if ((src_idx(cmd, '=') >= 0 && src_idx(env->next->name, '=') == -1)
+			|| (src_idx(cmd, '=') == -1 && src_idx(env->next->name, '=') >= 0))
+			return (len - 1);
+		return (len);
+	}
+	if (mode == 2)
+	{
+		if ((src_idx(cmd, '=') >= 0 && src_idx(env->name, '=') == -1)
+			|| (src_idx(cmd, '=') == -1 && src_idx(env->name, '=') >= 0))
+			return (len - 1);
+		return (len);
+	}
+}

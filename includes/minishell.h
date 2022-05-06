@@ -173,6 +173,7 @@ void	print_echo(char *cmd);
 char	*ft_strchr_exp(const char *s, int c);
 int		is_digit_arg(char *s);
 void	mini_echo(t_data *data);
+int		mini_unset(char *cmd, t_env *env, int len, int mode);
 
 //env management
 t_list	*init(char **envp);
