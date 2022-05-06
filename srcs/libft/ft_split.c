@@ -21,8 +21,12 @@ size_t	get_n_word(const char *s, char c, int n, int mode)
 	{
 		n = handling_quotes((char *)s, n, mode);
 		if (s[n] && (s[n] == '<' || s[n] == '>') && ++n)
+		{
+			if (n > 1 && s[n - 2] != ' ')
+				i++;
 			while (s[n] && (s[n] == '<' || s[n] == '>' || s[n] == ' '))
 				n++;
+		}
 		if (n && ((s[n] == c && s[n - 1] != c && s[n + 1])
 				|| (s[n] && s[n] != c && s[n + 1] == '\0')))
 			i++;
