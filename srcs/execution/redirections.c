@@ -97,7 +97,7 @@ void	open_files(char *cmd, t_data *data)
 		k = i;
 		if (close_and_open_files(tmp, i, k, data) == -1)
 			return ;
-		tmp = ft_substr_free(tmp, i - k + 2, ft_strlen(tmp) + 1);
+		tmp = ft_substr_free(tmp, k + 1, ft_strlen(tmp) + 1);
 	}
 	secure_free((void **)&tmp);
 }
