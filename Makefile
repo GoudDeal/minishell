@@ -6,7 +6,7 @@
 #    By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/29 15:58:43 by dcyprien          #+#    #+#              #
-#    Updated: 2022/05/06 23:39:37 by dcyprien         ###   ########.fr        #
+#    Updated: 2022/05/06 23:51:50 by dcyprien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS	=	./srcs/main.c\
 			./srcs/execution/signal_2.c\
 			./srcs/env/builtins_utils_2.c\
 			./srcs/execution/pipes_utils.c\
-			./srcs/parsing/error_mgt_3.c
+			./srcs/parsing/error_mgt_3.c\
+			./srcs/env/builtins_utils_3.c
 
 OBJS	=	${SRCS:.c=.o}
 

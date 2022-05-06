@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 15:35:06 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/06 23:39:21 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/06 23:53:36 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ void	print_export(t_list *list);
 void	update_pwd(t_list *list);
 char	*cd_args(t_list *list, char *str);
 int		check_exp(char *cmd);
+int		mini_expansion(char *var, t_list *list, int i);
 
 //redirections
 void	run_redir(t_data *args);
