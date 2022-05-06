@@ -35,7 +35,7 @@ void	mini_echo(t_data *data)
 		if (i != data->nb_args - 1)
 			ft_putchar_fd(' ', 1);
 	}
-	ft_putstr_fd(data->cmd[i], 1);
+	print_echo(data->cmd[i]);
 	ft_putchar_fd('\n', 1);
 }
 
