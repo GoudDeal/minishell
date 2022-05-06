@@ -88,7 +88,8 @@ void	run_shell(t_list *list)
 	if (data->redirect == 0 && list->pipe == 0
 		&& is_builtin(data, list) == 1)
 	{
-		g_exit_code = 0;
+		if (ft_strncmp(data->cmd[0], "exit", 4) != 0)
+			g_exit_code = 0;
 		run_builtin(data, list);
 	}
 	else
