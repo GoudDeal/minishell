@@ -37,7 +37,7 @@
 # define SIGINT  2
 # define SIGQUIT 3
 
-extern pid_t	g_exit_code;
+extern int	g_exit_code;
 
 typedef struct s_data {
 	char			**cmd;

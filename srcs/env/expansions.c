@@ -22,7 +22,7 @@ void	get_expansion(t_data *data, t_list *list)
 	i = -1;
 	if (!data || !data->cmd || ft_strlen(data->cmd[0]) == 0)
 		return ;
-	while (data->cmd[++i])
+	while (data->cmd[++i] && data->nb_args > 2)
 	{
 		a = ft_strchr_exp(data->cmd[i], '$');
 		index = src_idx(data->cmd[i], '$');
