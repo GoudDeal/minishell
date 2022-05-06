@@ -6,7 +6,7 @@
 /*   By: dcyprien <dcyprien@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 15:35:06 by dcyprien          #+#    #+#             */
-/*   Updated: 2022/05/05 22:53:11 by dcyprien         ###   ########.fr       */
+/*   Updated: 2022/05/06 23:39:21 by dcyprien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,6 +201,7 @@ int		redirect_tab(int *redirect);
 int		close_and_open_files(char *tmp, int i, int k, t_data *data);
 void	ignore_redirect(t_list *list);
 void	orga_data(t_list *list);
+int		null_redir(char *cmd);
 
 //free functions
 void	free_malloc(char **cmd, char *path, int mode);
