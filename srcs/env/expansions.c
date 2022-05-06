@@ -37,7 +37,7 @@ void	get_expansion(t_data *data, t_list *list)
 				var = skip_spaces(var);
 			secure_free((void **)&data->cmd[i]);
 			data->cmd[i] = ft_strdup(var);
-			i = check_null_cmd(data, i);
+			check_null_cmd(data, i);
 			secure_free((void **)&var);
 		}
 	}
