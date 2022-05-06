@@ -91,6 +91,7 @@ char	*remove_braces(char *d, t_list *list)
 		c = ft_substr(d, i, ft_strlen(d) - 1);
 	d = ft_substr_free(d, 0, i);
 	var = find_env_var(list, d);
+	var = skip_spaces(var);
 	secure_free((void **)&d);
 	return (join_pieces(b, c, var));
 }
