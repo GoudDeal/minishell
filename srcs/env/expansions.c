@@ -33,7 +33,8 @@ void	get_expansion(t_data *data, t_list *list)
 			&& char_in_quote(data->cmd[i], '$', index) != SIMPLE_QUOTE)
 		{
 			var = cat_expansion(data->cmd[i], list);
-			var = skip_spaces(var);
+			if (char_in_quote(data->cmd[i], '$', 0) != DOUBLE_QUOTE)
+				var = skip_spaces(var);
 			secure_free((void **)&data->cmd[i]);
 			data->cmd[i] = ft_strdup(var);
 			i = check_null_cmd(data, i);
