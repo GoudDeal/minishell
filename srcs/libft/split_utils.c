@@ -55,6 +55,8 @@ int	handling_quotes(char *s, int n, int mode)
 	if (s && is_quote(s[n]) == EXIT_SUCCESS && mode != 2 && ++n)
 	{
 		quote = is_closed_quotes(s, n - 1);
+		if (quote == EXIT_FAILURE)
+			return (n);
 		while (s[n] && s[n] != quote)
 			n++;
 		while (s[n] && s[n] == ' ')

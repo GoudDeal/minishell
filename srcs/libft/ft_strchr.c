@@ -18,25 +18,27 @@ char	*ft_strchr(char *s, int c)
 	int	i;
 
 	i = 0;
-	if (s != NULL)
+	if (s == NULL)
+		return (NULL);
+	while (*s && *(s + 1) && *s != c)
 	{
-		while (*s && *(s + 1) && *s != c)
+		if ((*s == '>' || *s == '<') && *s++)
 		{
-			if ((*s == '>' || *s == '<') && *s++)
-				while (*s == ' ' || *s == '>' || *s == '<')
-					s++;
-			else
+			if (i > 0 && (*s--) && *s--)
+				break ;
+			while (*s == ' ' || *s == '>' || *s == '<')
 				s++;
-			i++;
 		}
-		if (*s != c && !*(s + 1))
-			return ((char *)(s + 1));
-		else if (*s == c && check_in_quote(s, *s, i) == 0)
-			return ((char *)(s + 1));
 		else
-			return ((char *)(s + 1));
+			s++;
+		i++;
 	}
-	return (NULL);
+	if (*s != c && !*(s + 1))
+		return ((char *)(s + 1));
+	else if (*s == c && check_in_quote(s, *s, i) == 0)
+		return ((char *)(s + 1));
+	else
+		return ((char *)(s + 1));
 }
 
 int	ft_search_index(const char *s, int c)
