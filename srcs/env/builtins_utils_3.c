@@ -15,7 +15,7 @@
 int	mini_expansion(char *var, t_list *list, t_data *data, int i)
 {
 	var = cat_expansion(data->cmd[i], list);
-	if (char_in_quote(data->cmd[i], '$', 0) != DOUBLE_QUOTE)
+	if (char_in_quote(data->cmd[i], '$', src_idx(data->cmd[i], '$')) != DOUBLE_QUOTE)
 		var = skip_spaces(var);
 	secure_free((void **)&data->cmd[i]);
 	data->cmd[i] = ft_strdup(var);
