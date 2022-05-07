@@ -88,7 +88,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *str);
-char	*ft_strrchr(const char *s, int c);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**get_command(char *cmd, t_data *data);
 t_data	*parsing(char *cmd, t_list *list);

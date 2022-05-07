@@ -89,19 +89,19 @@ void	check_null_cmd(t_data *data)
 	i = -1;
 	while (data->cmd[++i])
 	{
-		if (ft_strncmp(data->cmd[i], "NULL", 4) == 0)
+		if (data->cmd[i][0] == 0)
 		{
 			if (ft_strchr_exp(data->cmd[i], '=') != 0)
 			{
 				tmp = ft_strdup(ft_strchr_exp(data->cmd[i], '='));
 				secure_free((void **)&data->cmd[i]);
 				data->cmd[i] = ft_strdup(tmp);
+				secure_free((void **)&tmp);
 			}
 			else
 			{
 				secure_free((void **)&data->cmd[i]);
-				if (data->cmd[i + 1] != NULL
-					&& ft_strncmp(data->cmd[i + 1], "NULL", 4) != 0)
+				if (data->cmd[i + 1] != NULL)
 					data->cmd[i] = ft_strdup(data->cmd[i + 1]);
 				data->nb_args--;
 			}

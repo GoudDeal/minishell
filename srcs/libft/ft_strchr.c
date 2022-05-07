@@ -71,3 +71,26 @@ char	*ft_strchr_exp(const char *s, int c)
 		return (0);
 	return ((char *)&s[i]);
 }
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	size_t		size;
+	size_t		i;
+
+	i = 0;
+	size = ft_strlen((char *)needle);
+	if (needle[i] == 0)
+		return ((char *)haystack);
+	if (len == 0)
+		return (0);
+	while (haystack[i] && i < len)
+	{
+		if (haystack[i] == needle[0] && i + size < len + 1)
+		{
+			if (!ft_strncmp(&haystack[i], needle, size))
+				return ((char *)&haystack[i]);
+		}
+		i++;
+	}
+	return (0);
+}

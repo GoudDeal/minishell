@@ -106,7 +106,7 @@ char	*find_env_var(t_list *list, char *str)
 			return (ft_strdup(env->value));
 		env = env->next;
 	}
-	return (ft_strdup("NULL"));
+	return (ft_strdup(""));
 }
 
 char	*join_pieces(char **b, char *c, char *var)
